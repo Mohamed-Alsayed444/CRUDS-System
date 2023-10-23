@@ -90,6 +90,8 @@ function updateProduct() {
   localStorage.setItem("products", JSON.stringify(productContainer));
   displayProducts(productContainer);
   clearInputs();
+  updateBtn.classList.replace("d-block", "d-none");
+  addBtn.classList.replace("d-none", "d-block");
 }
 
 
