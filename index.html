@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUDS </title>
+    <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./Assets/CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/CSS/style.css">
     
@@ -13,16 +15,20 @@
 
     <div class="container py-4 shadow my-4">
     <h1 class="my-3" >Cruds System</h1>
-    <label for="productName">productName</label>
+    <label for="productName" class="h5">productName</label>
     <input type="text" class="form-control my-2" id="productName">
+    <!-- <p class="lead text-danger blockquote-footer ">The product name must start with a capital letter followed by 1-8 characters </pح> -->
+        <figcaption class="blockquote-footer text-danger mt-2 mb-3">
+            The product name must start with a capital letter followed by 1-8 characters
+          </figcaption>
 
-    <label for="productPrice">productPrice</label>
+    <label for="productPrice" class="h5">productPrice</label>
     <input type="number" class="form-control my-2" id="productPrice">
     
-    <label for="productCategory">productCategory</label>
+    <label for="productCategory" class="h5">productCategory</label>
     <input type="text" class="form-control my-2" id="productCategory">
     
-    <label for="productDescription">productDescription</label>
+    <label for="productDescription" class="h5">productDescription</label>
     <textarea class="form-control my-2" id="productDescription"></textarea>
 
         <button class="btn btn-success w-100 d-block" id="addBtn" onclick="addProduct();">Add Product</button> 
@@ -46,7 +52,7 @@
     </table>
 </div>
 
-
+<script src="sweetalert2.all.min.js"></script>
     <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
     <script src="./Assets/JS/index.js"></script>
 </body>

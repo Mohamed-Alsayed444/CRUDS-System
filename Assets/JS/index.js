@@ -14,16 +14,31 @@ if (localStorage.getItem("products") != null) {
 
 
 function addProduct() {
-  var product = {
-    name: productNameInput.value,
-    price: productPriceInput.value,
-    category: productCategoryInput.value,
-    description: productDescriptionInput.value,
-  };
-  productContainer.push(product);
-  localStorage.setItem("products", JSON.stringify(productContainer));
-  displayProducts(productContainer);
-  clearInputs();
+  if(validateInputs()== true){
+    Swal.fire(
+      'Good job!',
+      'Added successfully',
+      'success'
+    )
+    var product = {
+      name: productNameInput.value,
+      price: productPriceInput.value,
+      category: productCategoryInput.value,
+      description: productDescriptionInput.value,
+    };
+    productContainer.push(product);
+    localStorage.setItem("products", JSON.stringify(productContainer));
+    displayProducts(productContainer);
+    clearInputs();
+  }else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong! ..Try Again',
+    
+    })
+  }
+  
 }
 
 function displayProducts(arr) {
@@ -80,6 +95,11 @@ function setFormForUpdate(i) {
 }
 
 function updateProduct() {
+  Swal.fire(
+    'Good job!',
+    'Updated successfully!',
+    'success'
+  )
   var product = {
     name: productNameInput.value,
     price: productPriceInput.value,
@@ -92,6 +112,21 @@ function updateProduct() {
   clearInputs();
   updateBtn.classList.replace("d-block", "d-none");
   addBtn.classList.replace("d-none", "d-block");
+}
+
+function validateInputs() {
+  
+  var regexName = /^[A-Z][a-z]{1,8}$/
+  var regexPrice = /^[0-9]{1,}$/
+  var regexCategory = /^[[a-z]{1,10}$/
+  var regexDescription = /^[a-z]{1,}$/
+
+  if((regexName.test(productNameInput.value))&&(regexPrice.test(productPriceInput.value))&&(regexCategory.test(productCategoryInput.value))&&(regexDescription.test(productDescriptionInput.value)))
+  {
+    return true;
+  }else{
+    return false;
+  }
 }
 
 
