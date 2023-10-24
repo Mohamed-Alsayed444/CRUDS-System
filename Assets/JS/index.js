@@ -116,10 +116,10 @@ function updateProduct() {
 
 function validateInputs() {
   
-  var regexName = /^[A-Z][a-z]{1,8}$/
+  var regexName = /^[A-Z][a-z]{1,10}$/
   var regexPrice = /^[0-9]{1,}$/
   var regexCategory = /^[A-Za-z]{1,10}$/
-  var regexDescription = /^[a-z]{1,}$/
+  var regexDescription = /^.{1,}$/
 
   if((regexName.test(productNameInput.value))&&(regexPrice.test(productPriceInput.value))&&(regexCategory.test(productCategoryInput.value))&&(regexDescription.test(productDescriptionInput.value)))
   {
